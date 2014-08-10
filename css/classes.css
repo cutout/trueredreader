@@ -1,0 +1,11 @@
+.box-sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.image-replace {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  display: block;
+}
