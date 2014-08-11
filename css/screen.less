@@ -49,15 +49,14 @@ body, input, textarea, select, button {
 
 a, a:visited, .logo a:hover, .logo a:active {
 	color: @link-color;
-	text-decoration: none;
+	text-decoration:none;
 	}
 
 a:hover, a:active {
 	color:@link-color-hover;
-	text-decoration:underline;
 	}
 	
-a:hover, :focus, li:hover, img:hover, input:hover, div:hover {
+a:hover, :focus, li:hover, img:hover, input:hover, div:hover, div:hover a {
 	.transition;
 	}
 
@@ -136,7 +135,7 @@ h1, h2, h3, h4, h5 {
 	margin:0 auto;
 	
 	.col-content {
-		width:77.05%;
+		width:76.5%;
 		float:left;
 		}
 	
@@ -337,66 +336,168 @@ h1, h2, h3, h4, h5 {
 
 /*Misc*/
 
-.brick {
-	width:30.5%;
-	border:1px solid @border-lt;
-	margin-bottom:25px;
-	border-width:2px 1px 1px;
-	border-top-color:#838383;
-	
-	.brick-content {
+.rss-aggregator {
+
+	li.feed-item {
+		width:30.5%;
+		border:1px solid @border-lt;
+		margin-bottom:25px;
+		border-width:2px 1px 1px;
+		border-top-color:#838383;
 		padding:25px 25px 30px;
+		list-style:none;
 		
-		time {
-			color:@text-color-more-lt;
-			font-size:.8em;
+		.wprss-feed-meta, .wprss-time-ago {
+			font-family:@font-display;
 			text-align:center;
 			display:block;
-			margin-top:3px;
-			}
-		
-		.img-wrap {
-			-webkit-backface-visibility: hidden;
+			margin-top:15px;
+			font-family:@font-body;
 			
-			img {
+			.feed-date {
 				display:block;
-				position:relative;
-				}
-			
-			img:hover {
 				}
 			}
 		
-		p {
+		.wprss-feed-meta {
 			font-size:.8em;
 			color:@text-color-lt;
-			}
-	
-		h3 {
-			text-align:center;
-			margin:20px 0 0;
-			font-size:1.5em;
+			margin-top:30px;
 			}
 		
-		cite {
-			font:.8em @font-display;
+		.wprss-time-ago {
+			color:@text-color-more-lt;
+			margin-top:4px;
+			font-size:.7em;
+			}
+		
+		a, a:visited {
 			text-align:center;
+			margin:20px 0 0;
+			font-size:1.45em;
 			display:block;
-			}	
+			font-family:@font-display;
+			color:@text-color;
+			font-weight:600
+			}
+	
 		}	
 	}
 
-.brick:hover {
-	background:#efefef;
+li.feed-item:hover {
 	cursor:hand;
 	cursor:pointer;
+	border-color:@link-color;
 	
 	a, a:visited {
-		color:@text-color;
+			color:@link-color;
+			}	
+	}
+
+#feed-wall .nav-links {
+	clear:both;
+	margin-top:20px;
+	display:none;
+	}	
+
+
+.audio-video {
+	background:url(../images/bg-kop.jpg) no-repeat center center fixed;
+	 -webkit-background-size: cover;
+  	-moz-background-size: cover;
+ 	 -o-background-size: cover;
+ 	 background-size: cover;
+ 	 padding:100px 20px 120px;
+ 	 
+ 	 h2 {
+	 	margin: 0 auto;
+		color: #fff;
+		text-align: center;
+		font-size: 3em;
+		margin-bottom: 55px;
+		font-weight: 600;
+		}
+		
+	.vids {
+	text-align:center;
+
+	
+	li {
+		display:inline-block;
+		list-style:none;
+		width:33%;
+		 position: relative;
+    	padding-bottom: 274px;
+    	padding-top: 30px; height: 0; overflow: hidden;
+    	height:359px;
+    	
+    	p {
+    		margin-top:294px;
+    		display:none;
+    		}
 		}
 	}	
 
+	.vids iframe,
+	.vids object,
+	.vids embed {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+		}
 	
+	.podcasts {
+		overflow:hidden;
+		text-align:center;
+		
+		.widget {
+			width:21%;
+			text-align:left;
+			float:left;
+			height:450px;
+			margin:0 22px;
+			
+			.rsswidget img {
+				display:none;
+				}
+			
+			h4 a.rsswidget, h4 a.rsswidget:visited {
+				display:block;
+				font-size:1.3em;
+				color:#fff;
+				margin-bottom:11px;
+				}
+			
+			li {
+				margin:0 0 14px 20px;
+				color:@link-color;
+				list-style:square;
+				
+				a, a:visited {
+					color:#a3a3a3;
+					font-family:@font-display;
+					font-size:.95em;
+					}
+				
+				a:hover, a:active {
+					color:#fff;
+					}	
+				
+				.rss-date {
+					font-size:.8em;
+					display:block;
+					margin-top:2px;
+					color:#666;
+					}	
+				}			
+			}
+		}			
+	}	
+
+
+
+
+
 .TB_overlayBG {
 	background-color:#ccc !important;
 	.opacity(.9) !important;
@@ -590,6 +691,10 @@ aside {
 				color:@text-color;
 				}
 			
+			a:hover, a:active {
+				text-decoration:underline;
+				}	
+			
 			.rsswidget img {
 				display:none;
 				}
@@ -650,8 +755,23 @@ aside {
 	background:url(../images/forum-reddit.png) no-repeat;
 	}	 
 
+.forum-six h3 {
+	background:url(../images/forum-six.png) no-repeat;
+	}	 
 
+.forum-bootroom h3 {
+	background:url(../images/forum-bootroom.png) no-repeat;
+	}	
 	
+.forum-lfcreds h3 {
+	background:url(../images/forum-lfcreds.png) no-repeat;
+	}	 	
+
+.forum-lfconline h3 {
+	background:url(../images/forum-lfconline.png) no-repeat;
+	}
+	
+		
 // =======================================================================
 // Post Styles
 // =======================================================================
@@ -989,7 +1109,6 @@ footer, .push {
 		 
 footer {
 	background: @bg-dark;
-	margin-top: 30px;
 	color: #a0a0a0;
 	padding: 15px;
 	

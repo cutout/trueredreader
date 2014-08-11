@@ -3,20 +3,13 @@
 </section><!--/container-->
 
 
-	<ul class="social">			
+	<!--<ul class="social">			
 		<li><a href="http://www.twitter.com/" class="symbol" title="twitterbird" target="_blank"></a></li>
       	<li><a href="https://www.facebook.com/" class="symbol" title="facebook" target="_blank"></a></li>
 	</ul>
-	
+	-->
 
 <footer role="contentinfo">
-	
-	<?php if (function_exists('dynamic_sidebar')) { ?>
-    	<section class="row clearfix">
-    		<?php dynamic_sidebar('Footer Widgets'); ?>
-    	</section>
-    <?php } ?>
-	
 	
 	<section class="footer-wrap">
 		<section class="row clearfix">

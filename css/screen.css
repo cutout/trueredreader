@@ -134,14 +134,14 @@ a:visited,
 a:hover,
 a:active {
   color: #93171e;
-  text-decoration: underline;
 }
 a:hover,
 :focus,
 li:hover,
 img:hover,
 input:hover,
-div:hover {
+div:hover,
+div:hover a {
   -webkit-transition: all 0.3s linear;
   -moz-transition: all 0.3s linear;
   transition: all 0.3s linear;
@@ -210,7 +210,7 @@ h5 {
   margin: 0 auto;
 }
 .row .col-content {
-  width: 77.05%;
+  width: 76.5%;
   float: left;
 }
 .row .col-sidebar {
@@ -377,52 +377,143 @@ h5 {
   line-height: 26px;
 }
 /*Misc*/
-.brick {
+.rss-aggregator li.feed-item {
   width: 30.5%;
   border: 1px solid #d8d8d8;
   margin-bottom: 25px;
   border-width: 2px 1px 1px;
   border-top-color: #838383;
-}
-.brick .brick-content {
   padding: 25px 25px 30px;
+  list-style: none;
 }
-.brick .brick-content time {
-  color: #8f8f8f;
-  font-size: .8em;
+.rss-aggregator li.feed-item .wprss-feed-meta,
+.rss-aggregator li.feed-item .wprss-time-ago {
+  font-family: 'Calluna', Georgia, 'Times New Roman', serif;
   text-align: center;
   display: block;
-  margin-top: 3px;
+  margin-top: 15px;
+  font-family: 'jaf-bernina-sans', 'Helvetica Neue', Arial, sans-serif;
 }
-.brick .brick-content .img-wrap {
-  -webkit-backface-visibility: hidden;
-}
-.brick .brick-content .img-wrap img {
+.rss-aggregator li.feed-item .wprss-feed-meta .feed-date,
+.rss-aggregator li.feed-item .wprss-time-ago .feed-date {
   display: block;
-  position: relative;
 }
-.brick .brick-content p {
+.rss-aggregator li.feed-item .wprss-feed-meta {
   font-size: .8em;
   color: #646464;
+  margin-top: 30px;
 }
-.brick .brick-content h3 {
+.rss-aggregator li.feed-item .wprss-time-ago {
+  color: #8f8f8f;
+  margin-top: 4px;
+  font-size: .7em;
+}
+.rss-aggregator li.feed-item a,
+.rss-aggregator li.feed-item a:visited {
   text-align: center;
   margin: 20px 0 0;
-  font-size: 1.5em;
-}
-.brick .brick-content cite {
-  font: 0.8em 'Calluna', Georgia, 'Times New Roman', serif;
-  text-align: center;
+  font-size: 1.45em;
   display: block;
+  font-family: 'Calluna', Georgia, 'Times New Roman', serif;
+  color: #333333;
+  font-weight: 600;
 }
-.brick:hover {
-  background: #efefef;
+li.feed-item:hover {
   cursor: hand;
   cursor: pointer;
+  border-color: #d1212a;
 }
-.brick:hover a,
-.brick:hover a:visited {
-  color: #333333;
+li.feed-item:hover a,
+li.feed-item:hover a:visited {
+  color: #d1212a;
+}
+#feed-wall .nav-links {
+  clear: both;
+  margin-top: 20px;
+  display: none;
+}
+.audio-video {
+  background: url(../images/bg-kop.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding: 100px 20px 120px;
+}
+.audio-video h2 {
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 55px;
+  font-weight: 600;
+}
+.audio-video .vids {
+  text-align: center;
+}
+.audio-video .vids li {
+  display: inline-block;
+  list-style: none;
+  width: 33%;
+  position: relative;
+  padding-bottom: 274px;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  height: 359px;
+}
+.audio-video .vids li p {
+  margin-top: 294px;
+  display: none;
+}
+.audio-video .vids iframe,
+.audio-video .vids object,
+.audio-video .vids embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.audio-video .podcasts {
+  overflow: hidden;
+  text-align: center;
+}
+.audio-video .podcasts .widget {
+  width: 21%;
+  text-align: left;
+  float: left;
+  height: 450px;
+  margin: 0 22px;
+}
+.audio-video .podcasts .widget .rsswidget img {
+  display: none;
+}
+.audio-video .podcasts .widget h4 a.rsswidget,
+.audio-video .podcasts .widget h4 a.rsswidget:visited {
+  display: block;
+  font-size: 1.3em;
+  color: #fff;
+  margin-bottom: 11px;
+}
+.audio-video .podcasts .widget li {
+  margin: 0 0 14px 20px;
+  color: #d1212a;
+  list-style: square;
+}
+.audio-video .podcasts .widget li a,
+.audio-video .podcasts .widget li a:visited {
+  color: #a3a3a3;
+  font-family: 'Calluna', Georgia, 'Times New Roman', serif;
+  font-size: .95em;
+}
+.audio-video .podcasts .widget li a:hover,
+.audio-video .podcasts .widget li a:active {
+  color: #fff;
+}
+.audio-video .podcasts .widget li .rss-date {
+  font-size: .8em;
+  display: block;
+  margin-top: 2px;
+  color: #666;
 }
 .TB_overlayBG {
   background-color: #ccc !important;
@@ -580,6 +671,10 @@ aside .widget h3.widgettitle a,
 aside .widget h3.widgettitle a:visited {
   color: #333333;
 }
+aside .widget h3.widgettitle a:hover,
+aside .widget h3.widgettitle a:active {
+  text-decoration: underline;
+}
 aside .widget h3.widgettitle .rsswidget img {
   display: none;
 }
@@ -625,6 +720,18 @@ aside .widget select {
 }
 .forum-reddit h3 {
   background: url(../images/forum-reddit.png) no-repeat;
+}
+.forum-six h3 {
+  background: url(../images/forum-six.png) no-repeat;
+}
+.forum-bootroom h3 {
+  background: url(../images/forum-bootroom.png) no-repeat;
+}
+.forum-lfcreds h3 {
+  background: url(../images/forum-lfcreds.png) no-repeat;
+}
+.forum-lfconline h3 {
+  background: url(../images/forum-lfconline.png) no-repeat;
 }
 article h1 {
   font-size: 2.4em;
@@ -926,7 +1033,6 @@ footer,
 }
 footer {
   background: #333333;
-  margin-top: 30px;
   color: #a0a0a0;
   padding: 15px;
 }

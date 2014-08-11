@@ -2,50 +2,97 @@
 
 <section class="row clearfix">
 	<div class="col-content">
-		<script type="text/javascript">
-jQuery( document ).ready( function( $ ) {
-	
-var $container = $('#photowall');
-
-$container.imagesLoaded( function() {
-  $container.masonry({ 
-    gutterWidth:30, 
-    itemSelector:'.brick',
-    });
-});
-})
-</script>
-
-
-
-
-
-<div id="photowall">
-		<?php
-		$page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-		query_posts("showposts=10&paged=$page");
-		?>
-
-		<?php while ( have_posts() ) : the_post(); ?>
+	<script type="text/javascript">
+		jQuery( document ).ready( function( $ ) {
+			
+		var $container = $('#feed-wall');
 		
-		<div class="brick">
-			<div class="brick-content">
-				<div class="img-wrap">
-					<a href="<?php the_permalink(); ?>"><img title="<?php the_title(); ?>" alt="<?php the_title(); ?>" class="wp-post-image" src="<?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large', false, '' ); echo $src[0]; ?>" /></a>
-				</div>
-				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				<time>3 minutes ago</time>
-				<p><?php the_excerpt(); ?></p>
-				<cite><em>via</em> <a href="#">The Guardian<a/></cite>
-			</div>
+		$container.imagesLoaded( function() {
+		  $container.masonry({ 
+		    gutterWidth:30, 
+		    itemSelector:'.feed-item',
+		    });
+		});
+		})
+	</script>
+		<div id="feed-wall">
+			<?php wprss_display_feed_items(); ?>
 		</div>
-		
-		<?php endwhile; ?> 
-		
-	</div>	
 	</div>
 	<?php get_sidebar(); ?>
-        
 </section>
+
+
+	<script type="text/javascript">
+
+// Find all YouTube videos
+var $allVideos = $("iframe[src^='http://www.youtube.com']"),
+
+    // The element that is fluid width
+    $fluidEl = $("body");
+
+// Figure out and save aspect ratio for each video
+$allVideos.each(function() {
+
+  $(this)
+    .data('aspectRatio', this.height / this.width)
+
+    // and remove the hard coded width/height
+    .removeAttr('height')
+    .removeAttr('width');
+
+});
+
+// When the window is resized
+$(window).resize(function() {
+
+  var newWidth = $fluidEl.width();
+
+  // Resize all videos according to their own aspect ratio
+  $allVideos.each(function() {
+
+    var $el = $(this);
+    $el
+      .width(newWidth)
+      .height(newWidth * $el.data('aspectRatio'));
+
+  });
+
+// Kick off one resize to fix all videos on page load
+}).resize();
+
+</script>
+
+<section class="audio-video">
+	<h2>Latest Video &amp; Podcasts</h2>
+	<div class="row">
+		<ul class="vids">
+		<li><?php echo do_shortcode('[ix_show_latest_yt ytid="UC8ToRX9bNJx_QfTj6-4GIvA" width="400" height="300" autoplay="off" count_of_videos="1" no_live_message="some text" related="on"]'); ?>
+		<p>via <a href="https://www.youtube.com/channel/UC8ToRX9bNJx_QfTj6-4GIvA" target="_blank">LFC Entertainment</a></p>
+		</li>
+		
+		<li><?php echo do_shortcode('[ix_show_latest_yt ytid="liverpoolfc" width="400" height="300" autoplay="off" count_of_videos="1" no_live_message="some text" related="on"]'); ?>
+		<p>via <a href="https://www.youtube.com/channel/UC9LQwHZoucFT94I2h6JOcjw" target="_blank">Liverpool FC</a></p>
+		</li>
+		
+		<li><?php echo do_shortcode('[ix_show_latest_yt ytid="Lobsto" width="400" height="300" autoplay="off" count_of_videos="1" no_live_message="some text" related="on"]'); ?>
+		<p>via <a href="https://www.youtube.com/channel/UCL0iSns5GIwEhIUI_5a7dsw" target="_blank">LFC Media</a></p>
+		</li>
+		</ul>
+		
+	</div>
+	
+	<div class="row podcasts">
+		<?php if (function_exists('dynamic_sidebar')) { ?>
+    	<section class="row clearfix">
+    		<?php dynamic_sidebar('Footer Widgets'); ?>
+    	</section>
+    <?php } ?>
+	
+	
+	
+	</div>
+</section>
+
 
 <?php get_footer(); ?>
