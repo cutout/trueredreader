@@ -1,15 +1,15 @@
 /* 
 // =======================================================================
-// < 1140px
+// < 1280px
 // =======================================================================
 */
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1280px) {
   body {
     min-width: 0;
-    max-width: 1140px;
+    max-width: 1280px;
   }
-  .main {
-    padding: 30px 15px;
+  .container {
+    padding: 0 15px;
   }
   article h1 {
     font-size: 2em;
@@ -34,18 +34,60 @@
 }
 /* 
 // =======================================================================
+// < 1030px
+// =======================================================================
+*/
+@media only screen and (max-width: 1030px) {
+  .rss-aggregator li.feed-item {
+    width: 46%;
+  }
+  .audio-video {
+    padding-top: 50px;
+    background-size: auto;
+    margin-left: -15px;
+    margin-right: -15px;
+    background-image: none;
+    background-color: #1f1f1f;
+  }
+  .audio-video .vids li {
+    display: block;
+    width: auto;
+  }
+  .audio-video .vids li iframe {
+    position: relative;
+  }
+  .audio-video .vids li p {
+    display: none;
+  }
+  .audio-video .podcasts .widget {
+    width: 48%;
+    height: 410px;
+    margin: 0;
+  }
+  .audio-video h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+}
+/* 
+// =======================================================================
 // < 900px
 // =======================================================================
 */
 @media only screen and (max-width: 900px) {
   /*General*/
-  .logo a,
-  .logo a:visited {
+  .branding {
+    float: none;
+    width: auto;
+  }
+  .branding .logo {
     margin: 0 auto;
+    text-align: center;
   }
   /* Nav */
   .nav-open .nav-bg {
     overflow-y: auto;
+    background: #111111;
   }
   .nav-open .overlay {
     display: block;
@@ -53,15 +95,16 @@
   #nav-toggle {
     background: #333333 url(../images/icon-pulldown.png) no-repeat 5px;
     display: block;
-    width: 29px;
+    width: 28px;
     height: 29px;
     text-indent: -9999em;
     border: none;
     outline: none;
     position: absolute;
-    top: 20px;
-    left: 10px;
+    top: 12px;
+    left: 15px;
     cursor: pointer;
+    border-radius: 3px;
   }
   .nav-bg {
     width: 240px;
@@ -71,7 +114,10 @@
     top: 0;
     left: -240px;
   }
-  .nav-bg .nav > li {
+  .nav-bg .nav {
+    height: auto;
+  }
+  .nav-bg .nav li {
     display: block;
     vertical-align: baseline;
     zoom: 1;
@@ -79,6 +125,7 @@
     list-style: none;
     float: none;
     margin: 0;
+    border: none;
   }
   .nav-bg .nav li.menu-item-has-children {
     background: none;
@@ -101,12 +148,10 @@
   .nav-bg .nav a,
   .nav-bg .nav a:visited {
     color: #bebebe !important;
-    border-bottom: 1px solid #666;
   }
   .nav-bg .nav a:hover,
   .nav-bg .nav a:active {
     color: #fff !important;
-    background: #000 !important;
   }
   .nav-bg .nav li li {
     margin: 4px 0 4px 27px;
@@ -246,15 +291,10 @@
 @media screen and (max-width: 767px) {
   /*Structure*/
   .container {
-    padding: 0;
     margin: 0;
   }
   .container .masthead .branding {
     text-align: center;
-  }
-  .container .masthead .branding h1.logo a,
-  .container .masthead .branding h1.logo a:visited {
-    margin: 0 auto;
   }
   .container .masthead .branding .row aside.fourcol {
     margin-top: 30px;
@@ -275,6 +315,9 @@
     min-width: 0 !important;
   }
   /*Content*/
+  .open-latest time {
+    display: none;
+  }
   article h1.posttitle,
   article h1.pagetitle,
   article h2.posttitle {
@@ -307,17 +350,6 @@
   .push {
     height: auto;
   }
-  footer {
-    padding: 15px;
-    margin: 0;
-    font-size: .8em;
-  }
-  footer .widget {
-    display: block;
-    width: auto;
-    float: none;
-    margin: 15px 3%;
-  }
 }
 /* 
 // =======================================================================
@@ -325,6 +357,40 @@
 // =======================================================================
 */
 @media screen and (max-width: 600px) {
+  .main {
+    padding-top: 4px;
+  }
+  .open-latest {
+    margin-bottom: 15px;
+  }
+  .open-latest strong {
+    display: block;
+    font-size: .8em;
+  }
+  .logo {
+    font-size: 1em;
+  }
+  .rss-aggregator li.feed-item {
+    width: 100%;
+    float: none;
+    border-width: 0 0 1px 0;
+    height: auto;
+  }
+  .audio-video h2 {
+    font-size: 1.3em;
+  }
+  .audio-video .vids li {
+    height: auto;
+    padding-bottom: 0;
+  }
+  .audio-video .vids li iframe {
+    width: 290px;
+  }
+  .audio-video .podcasts .widget {
+    width: 100%;
+    height: auto;
+    margin: 0 0 10px;
+  }
   article .entry .postnav h5 {
     font-size: .8em;
   }

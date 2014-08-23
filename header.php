@@ -16,12 +16,18 @@
 <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
+<link href="<?php bloginfo('template_directory'); ?>/images/apple-touch-icon.png" rel="apple-touch-icon" />
+<link href="<?php bloginfo('template_directory'); ?>/images/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+<link href="<?php bloginfo('template_directory'); ?>/images/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+<link href="<?php bloginfo('template_directory'); ?>/images//apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+
+
+
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
 <?php wp_head(); ?>
-<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/responsive.css" type="text/css" media="all" />
 
 
 <script type="text/javascript" src="//use.typekit.net/jiy1xka.js"></script>
@@ -36,19 +42,12 @@
 	<header class="masthead clearfix" role="banner">
 		<section class="clearfix row">
 			<div class="branding">
-	     		<?php if(is_home()) { ?>
 	     		<h1 class="logo">
 	    		    <a href="<?php echo home_url(); ?>/" title="<?php _e('Home','gravy'); ?>">
 	     		    	<img src="<?php bloginfo('template_directory'); ?>/images/logo.png" /> <em>the</em> True Red Reader
 	      		    </a>
 	      		</h1>
-	      		<?php } else { ?>
-	      		<div class="logo">
-	      		    <a href="<?php echo home_url(); ?>/" title="<?php _e('Home','gravy'); ?>">
-	     		    	<?php bloginfo('name'); ?>
-	      		    </a>
-	      		</div>	
-	      		<?php } ?>	
+	      		
 			</div>
 			
 			<button id="nav-toggle" aria-hidden="true">Navigation</button>

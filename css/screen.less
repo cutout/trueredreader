@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5 {
 	margin:0 auto;
 	
 	.col-content {
-		width:76.5%;
+		width:76%;
 		float:left;
 		}
 	
@@ -154,8 +154,11 @@ h1, h2, h3, h4, h5 {
 		}
 	}	
 
+.home .main {
+	padding: 30px 0 0;
+	}
+	
 .main {
-	padding: 30px 0;
 	clear: both;
 	}
 
@@ -163,9 +166,12 @@ h1, h2, h3, h4, h5 {
 	 border-bottom:2px solid @border-lt;
 	 padding-left:15px;
 	 padding-right:15px;
-	 margin-bottom:15px;
 	 height:54px;
 	}
+
+.home .masthead {
+	 margin-bottom:15px;
+	}	
 
 .branding {
 	width:420px;
@@ -277,18 +283,7 @@ h1, h2, h3, h4, h5 {
 
 /*Social*/
 
-@font-face {
-	font-family: 'Mono Social Icons Font';
-	src: url('../fonts/MonoSocialIconsFont-1.10.eot');
-	src: url('../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'), 
-		url('../fonts/MonoSocialIconsFont-1.10.woff') format('woff'), 
-		url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'), 
-		url('../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
-	src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-	}
-	
+
 .social {
 	text-align: center;
 	
@@ -308,27 +303,6 @@ h1, h2, h3, h4, h5 {
 	
 	a:hover, a:active {
 		border-color: #927780;
-		}
-	
-	.symbol, a.symbol:before {
-		font-family: 'Mono Social Icons Font';
-		-webkit-text-rendering: optimizeLegibility;
-		-moz-text-rendering: optimizeLegibility;
-		-ms-text-rendering: optimizeLegibility;
-		-o-text-rendering: optimizeLegibility;
-		text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: antialiased;
-		-moz-font-smoothing: antialiased;
-		-ms-font-smoothing: antialiased;
-		-o-font-smoothing: antialiased;
-		font-smoothing: antialiased;
-		color: #d6cbd2;
-		}
-	
-	a.symbol:before {
-		content: attr(title);
-		font-size: 1.75em;
-		line-height: 26px;
 		}
 	}	
 
@@ -390,7 +364,6 @@ li.feed-item:hover {
 	border-color:@link-color;
 	
 	a, a:visited {
-			color:@link-color;
 			}	
 	}
 
@@ -400,6 +373,21 @@ li.feed-item:hover {
 	display:none;
 	}	
 
+#feed-wall {
+	background:url(../images/loading.gif) no-repeat top center;
+	
+		ul { 
+		visibility: hidden;
+		}
+	}	
+
+#feed-wall.masonry {
+	background:none;
+	
+	ul {
+		visibility: visible;
+		}
+	}	
 
 .audio-video {
 	background:url(../images/bg-kop.jpg) no-repeat center center fixed;
@@ -408,6 +396,7 @@ li.feed-item:hover {
  	 -o-background-size: cover;
  	 background-size: cover;
  	 padding:100px 20px 120px;
+ 	 color:#666;
  	 
  	 h2 {
 	 	margin: 0 auto;
@@ -426,14 +415,19 @@ li.feed-item:hover {
 		display:inline-block;
 		list-style:none;
 		width:33%;
-		 position: relative;
+		position: relative;
     	padding-bottom: 274px;
     	padding-top: 30px; height: 0; overflow: hidden;
     	height:359px;
     	
+    	a:hover, a:active {
+    		color:#fff
+    		}
+    	
     	p {
-    		margin-top:294px;
-    		display:none;
+    		margin-top:281px;
+    		font-size:.75em;
+    		font-style:italic;
     		}
 		}
 	}	
@@ -449,6 +443,7 @@ li.feed-item:hover {
 	.podcasts {
 		overflow:hidden;
 		text-align:center;
+		margin-top:35px;
 		
 		.widget {
 			width:21%;
@@ -470,11 +465,10 @@ li.feed-item:hover {
 			
 			li {
 				margin:0 0 14px 20px;
-				color:@link-color;
 				list-style:square;
 				
 				a, a:visited {
-					color:#a3a3a3;
+					color:#AFCBDB;
 					font-family:@font-display;
 					font-size:.95em;
 					}
@@ -487,7 +481,6 @@ li.feed-item:hover {
 					font-size:.8em;
 					display:block;
 					margin-top:2px;
-					color:#666;
 					}	
 				}			
 			}
@@ -495,7 +488,39 @@ li.feed-item:hover {
 	}	
 
 
+.open-latest {
+	background:@link-color;
+	padding:10px 14px;
+	margin-bottom:33px;
+	color:#FFCFD1;
+	font-size:.9em;
+	
+	a, a:visited {
+		color:#fff;
+		border-bottom:1px solid #e88080;
+		margin-left:2px;
+		}
+	
+	.comments-number {
+		font-size:.8em;
+		display:inline-block;
+		margin-left:3px;
+		
+		.fa {
+			color:#fff;
+			}
+		}
+	
+	time {
+		font:italic .9em @font-display;
+		float:right;
+		letter-spacing:.03em;
+		}
+	}
 
+.open-latest:hover {
+	background:@link-color-hover
+	}	
 
 
 .TB_overlayBG {
@@ -543,7 +568,7 @@ li.feed-item:hover {
 .logo a, .logo a:visited {
 	color:@text-color;
 	font-size:1.2em;
-	line-height:52px;
+	line-height:56px;
 	
 	img {
 		vertical-align:top;
@@ -776,15 +801,25 @@ aside {
 // Post Styles
 // =======================================================================
 
+.page-hdr {
+	background:#efefef;
+	border-bottom:2px solid @border-lt;
+	margin-top:-4px;
+	padding:15px;
+	margin-bottom:30px;
+
+	h1 {
+	font-size:2.4em;
+		}
+	}
+
 
 article {
 	
-	h1 {
-		font-size:2.4em;
-		}
-	
 	h2 {
 		font-size:2em;
+		color:#494949;
+		font-weight:100;
 		}
 			
 	h3 {
@@ -796,7 +831,7 @@ article {
 		}
 	
 	h5 {
-		font-size: 1em
+		font-size: .9em
 		}
 	
 	h6 {
@@ -1108,9 +1143,19 @@ footer, .push {
 	}
 		 
 footer {
-	background: @bg-dark;
-	color: #a0a0a0;
-	padding: 15px;
+	background: @link-color;
+	color: #FFE4E5;
+	line-height:400%;
+	text-align:center;
+	font:.8em italic @font-display;
+	line-height: 52px;
+	text-transform: uppercase;
+	letter-spacing: .03em;
+	
+	img {
+		display: block;
+		margin: 20px auto -6px;
+		}
 	
 	a, a:visited {
 		border:none;

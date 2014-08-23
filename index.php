@@ -1,5 +1,21 @@
 <?php get_header(); ?>
 
+<section class="row">
+	<div class="open-latest">
+		<?php
+		$query = 'posts_per_page=1&cat=3';
+		$queryObject = new WP_Query($query);
+		// The Loop...
+		if ($queryObject->have_posts()) {
+			while ($queryObject->have_posts()) {
+				$queryObject->the_post(); ?> 
+					<strong>Open Chat:</strong> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> <span class="comments-number">(<?php comments_number('0', '1', '%'); ?> <i class="fa fa-comment"></i>)</span>
+					
+					<time><?php the_time('F d, Y'); ?></time>
+				<?php } } ?>
+	</div>
+</section>
+
 <section class="row clearfix">
 	<div class="col-content">
 	<script type="text/javascript">

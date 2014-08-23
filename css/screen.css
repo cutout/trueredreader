@@ -202,7 +202,7 @@ h5 {
   /*Sticky footer*/
 
   height: 100%;
-  margin: 0 auto -55px;
+  margin: 0 auto -126px;
 }
 .row {
   max-width: 1280px;
@@ -210,7 +210,7 @@ h5 {
   margin: 0 auto;
 }
 .row .col-content {
-  width: 76.5%;
+  width: 76%;
   float: left;
 }
 .row .col-sidebar {
@@ -234,16 +234,20 @@ h5 {
   float: left;
   min-height: 1px;
 }
+.home .main {
+  padding: 30px 0 0;
+}
 .main {
-  padding: 30px 0;
   clear: both;
 }
 .masthead {
   border-bottom: 2px solid #d8d8d8;
   padding-left: 15px;
   padding-right: 15px;
-  margin-bottom: 15px;
   height: 54px;
+}
+.home .masthead {
+  margin-bottom: 15px;
 }
 .branding {
   width: 420px;
@@ -326,14 +330,6 @@ h5 {
   background: #efefef;
 }
 /*Social*/
-@font-face {
-  font-family: 'Mono Social Icons Font';
-  src: url('../fonts/MonoSocialIconsFont-1.10.eot');
-  src: url('../fonts/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'), url('../fonts/MonoSocialIconsFont-1.10.woff') format('woff'), url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype'), url('../fonts/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
-  src: url('../fonts/MonoSocialIconsFont-1.10.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 .social {
   text-align: center;
 }
@@ -355,26 +351,6 @@ h5 {
 .social a:hover,
 .social a:active {
   border-color: #927780;
-}
-.social .symbol,
-.social a.symbol:before {
-  font-family: 'Mono Social Icons Font';
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  -ms-text-rendering: optimizeLegibility;
-  -o-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -ms-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  color: #d6cbd2;
-}
-.social a.symbol:before {
-  content: attr(title);
-  font-size: 1.75em;
-  line-height: 26px;
 }
 /*Misc*/
 .rss-aggregator li.feed-item {
@@ -423,14 +399,22 @@ li.feed-item:hover {
   cursor: pointer;
   border-color: #d1212a;
 }
-li.feed-item:hover a,
-li.feed-item:hover a:visited {
-  color: #d1212a;
-}
 #feed-wall .nav-links {
   clear: both;
   margin-top: 20px;
   display: none;
+}
+#feed-wall {
+  background: url(../images/loading.gif) no-repeat top center;
+}
+#feed-wall ul {
+  visibility: hidden;
+}
+#feed-wall.masonry {
+  background: none;
+}
+#feed-wall.masonry ul {
+  visibility: visible;
 }
 .audio-video {
   background: url(../images/bg-kop.jpg) no-repeat center center fixed;
@@ -439,6 +423,7 @@ li.feed-item:hover a:visited {
   -o-background-size: cover;
   background-size: cover;
   padding: 100px 20px 120px;
+  color: #666;
 }
 .audio-video h2 {
   margin: 0 auto;
@@ -462,9 +447,14 @@ li.feed-item:hover a:visited {
   overflow: hidden;
   height: 359px;
 }
+.audio-video .vids li a:hover,
+.audio-video .vids li a:active {
+  color: #ffffff;
+}
 .audio-video .vids li p {
-  margin-top: 294px;
-  display: none;
+  margin-top: 281px;
+  font-size: .75em;
+  font-style: italic;
 }
 .audio-video .vids iframe,
 .audio-video .vids object,
@@ -476,6 +466,7 @@ li.feed-item:hover a:visited {
 .audio-video .podcasts {
   overflow: hidden;
   text-align: center;
+  margin-top: 35px;
 }
 .audio-video .podcasts .widget {
   width: 21%;
@@ -496,12 +487,11 @@ li.feed-item:hover a:visited {
 }
 .audio-video .podcasts .widget li {
   margin: 0 0 14px 20px;
-  color: #d1212a;
   list-style: square;
 }
 .audio-video .podcasts .widget li a,
 .audio-video .podcasts .widget li a:visited {
-  color: #a3a3a3;
+  color: #AFCBDB;
   font-family: 'Calluna', Georgia, 'Times New Roman', serif;
   font-size: .95em;
 }
@@ -513,7 +503,35 @@ li.feed-item:hover a:visited {
   font-size: .8em;
   display: block;
   margin-top: 2px;
-  color: #666;
+}
+.open-latest {
+  background: #d1212a;
+  padding: 10px 14px;
+  margin-bottom: 33px;
+  color: #FFCFD1;
+  font-size: .9em;
+}
+.open-latest a,
+.open-latest a:visited {
+  color: #fff;
+  border-bottom: 1px solid #e88080;
+  margin-left: 2px;
+}
+.open-latest .comments-number {
+  font-size: .8em;
+  display: inline-block;
+  margin-left: 3px;
+}
+.open-latest .comments-number .fa {
+  color: #fff;
+}
+.open-latest time {
+  font: italic 0.9em 'Calluna', Georgia, 'Times New Roman', serif;
+  float: right;
+  letter-spacing: .03em;
+}
+.open-latest:hover {
+  background: #93171e;
 }
 .TB_overlayBG {
   background-color: #ccc !important;
@@ -560,7 +578,7 @@ li.feed-item:hover a:visited {
 .logo a:visited {
   color: #333333;
   font-size: 1.2em;
-  line-height: 52px;
+  line-height: 56px;
 }
 .logo a img,
 .logo a:visited img {
@@ -733,11 +751,20 @@ aside .widget select {
 .forum-lfconline h3 {
   background: url(../images/forum-lfconline.png) no-repeat;
 }
-article h1 {
+.page-hdr {
+  background: #efefef;
+  border-bottom: 2px solid #d8d8d8;
+  margin-top: -4px;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+.page-hdr h1 {
   font-size: 2.4em;
 }
 article h2 {
   font-size: 2em;
+  color: #494949;
+  font-weight: 100;
 }
 article h3 {
   font-size: 1.8em;
@@ -746,7 +773,7 @@ article h4 {
   font-size: 1.4em;
 }
 article h5 {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 article h6 {
   font-size: .8em;
@@ -1029,12 +1056,21 @@ input.searchfield[type=text]:focus {
 }
 footer,
 .push {
-  height: 55px;
+  height: 126px;
 }
 footer {
-  background: #333333;
-  color: #a0a0a0;
-  padding: 15px;
+  background: #d1212a;
+  color: #FFE4E5;
+  line-height: 400%;
+  text-align: center;
+  font: 0.8em italic 'Calluna', Georgia, 'Times New Roman', serif;
+  line-height: 52px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+footer img {
+  display: block;
+  margin: 20px auto -6px;
 }
 footer a,
 footer a:visited {

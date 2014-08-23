@@ -1,7 +1,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
-	<h1 class="posttitle">
+	<h2 class="posttitle">
 		<?php the_title(); ?>
-	</h1>
+	</h2>
 	<?php get_template_part('content','postmetadata'); ?>
 	<section class="entry">
 		<?php the_content(); ?>

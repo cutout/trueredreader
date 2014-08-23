@@ -58,6 +58,7 @@ function theme_enqueue_styles() {
 
 function gravy_styles_init() {
        if (!is_admin()) {
+               wp_enqueue_style('fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', null, '1.0', 'all');
                wp_enqueue_style('style', get_template_directory_uri().'/style.css', null, '1.0', 'all');
                wp_enqueue_style('ie', get_template_directory_uri().'/ie.css', null, '1.0', 'all');
                wp_enqueue_style('print', get_template_directory_uri().'/css/print.css', null, '1.0', 'print');
